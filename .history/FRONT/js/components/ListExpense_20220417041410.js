@@ -1,14 +1,12 @@
 import React from "react";
 
-const ListExpense = ({ products }) => {
+const ListExpense = ({ timeList }) => {
     return (
         <>
             {/* <button onClick={() => save(time)}> Save time </button> */}
             <ul>
-                {products.map((entry, i) => (
-                    <li key={i}>
-                        {entry.name} {entry.price} zł
-                    </li>
+                {timeList.map((time, i) => (
+                    <li key={i}>{time}</li>
                 ))}
             </ul>
         </>

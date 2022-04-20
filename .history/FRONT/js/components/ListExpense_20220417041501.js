@@ -5,10 +5,8 @@ const ListExpense = ({ products }) => {
         <>
             {/* <button onClick={() => save(time)}> Save time </button> */}
             <ul>
-                {products.map((entry, i) => (
-                    <li key={i}>
-                        {entry.name} {entry.price} zł
-                    </li>
+                {products.map((time, i) => (
+                    <li key={i}>{time}</li>
                 ))}
             </ul>
         </>

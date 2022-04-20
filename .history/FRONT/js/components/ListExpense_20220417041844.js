@@ -7,7 +7,7 @@ const ListExpense = ({ products }) => {
             <ul>
                 {products.map((entry, i) => (
                     <li key={i}>
-                        {entry.name} {entry.price} zł
+                        {entry.name} {entry.price}
                     </li>
                 ))}
             </ul>
