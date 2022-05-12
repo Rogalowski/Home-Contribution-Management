@@ -1,6 +1,6 @@
 import Expenses from "../components/Expenses";
 import { connect } from "react-redux";
-import { addExpense} from "../redux/actions";
+import { addExpense } from "../redux/actions";
 
 const mapStateToProps = ({ users, expenses }) => ({
     users,

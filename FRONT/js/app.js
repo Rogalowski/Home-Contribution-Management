@@ -8,9 +8,12 @@ import Expenses from "./containers/Expenses";
 
 const App = () => (
     <div>
+        <h1>Home-Contribution-Management</h1>
         <Provider store={store}>
             <UserInput />
+            Added Users:
             <Expenses />
+            <h2>JANUARY</h2>
         </Provider>
     </div>
 );

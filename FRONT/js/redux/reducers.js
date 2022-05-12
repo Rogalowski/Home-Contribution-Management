@@ -2,7 +2,7 @@ import { ADD_EXPENSE, ADD_USER } from "./actions";
 import { combineReducers } from "redux";
 
 const initUser = {
-    jan: 0,
+    jacek: 0,
     gosia: 0,
 };
 function users(state = initUser, action) {
@@ -12,7 +12,7 @@ function users(state = initUser, action) {
                 ...state,
                 [action.payload]: 0,
             };
-        // case ADD_ARTICLE:
+        // case ADD_EXPENSE:
         //     return {
         //         ...state,
         //         [action.payload.userId]: state[action.payload.userId] + 1,
