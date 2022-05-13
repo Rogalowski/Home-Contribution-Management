@@ -48,12 +48,11 @@ function expenses(
         case ADD_EXPENSE:
             return [
                 ...state,
-                [
-                    {
-                        title: action.payload.title,
-                        price: action.payload.price,
-                    },
-                ],
+
+                {
+                    title: action.payload.title,
+                    price: action.payload.price,
+                },
             ];
 
         default:
