@@ -15,7 +15,9 @@ function users(state = initUser, action) {
         case ADD_EXPENSE:
             return {
                 ...state,
-                [action.payload.userId]: state[action.payload.userId] + 1,
+                [action.payload.userId]:
+                    state[action.payload.userId] +
+                    parseFloat(action.payload.price),
             };
 
         default:
