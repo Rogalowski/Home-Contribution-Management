@@ -28,6 +28,7 @@ function users(state = initUser, action) {
 function expenses(
     state = [
         {
+            date: "13.05.2022, 22:53:24",
             title: "test",
             price: 123.34663,
             userId: "jacek",
