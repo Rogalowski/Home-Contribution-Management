@@ -41,7 +41,7 @@ class ExpenseInput extends Component {
                         <option key={user}>{user}</option>
                     ))}
                 </select>
-                <button onClick={this.onClick}>Dodaj wydatek</button>
+                <button onClick={this.onClick}>ADD EXPENSE</button>
             </div>
         );
     }
