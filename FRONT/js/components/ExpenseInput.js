@@ -8,9 +8,7 @@ class ExpenseInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userId: "jacek",
-            title: "",
-            price: "",
+            userId: "someone", // will select peron on refresh site
         };
 
         this.onTitleChange = this.onTitleChange.bind(this);
@@ -39,12 +37,17 @@ class ExpenseInput extends Component {
         return (
             <div>
                 title:
-                <input value={this.state.title} onChange={this.onTitleChange} />
+                <input
+                    placeholder="Type name of bought product"
+                    value={this.state.title}
+                    onChange={this.onTitleChange}
+                />
                 price:
                 <input
                     type="text"
                     inputMode="numeric"
                     pattern="[0-9]*"
+                    placeholder="Type numeric 0-9.0-9"
                     value={this.state.price}
                     onChange={this.onPriceChange}
                 />

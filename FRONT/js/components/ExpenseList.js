@@ -5,7 +5,7 @@ const ExpenseList = ({ expenses = [] }) => (
         Title expense --- Price expense
         {expenses.map((expense) => (
             <li>
-                {expense.title} --- {expense.price} zł{" "}
+                {expense.title} --- {expense.price} zł by
             </li>
         ))}
     </ol>
