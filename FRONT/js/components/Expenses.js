@@ -5,12 +5,13 @@ import ExpenseList from "./ExpenseList";
 
 const Expenses = ({ onAdd, users, expenses }) => (
     <div>
-        <b>Added Users: </b>
+        <h5>Added Users with Summary: </h5>
         <UsersList users={users} />
         <p></p>
         <h2>JANUARY</h2>
         <ExpenseList expenses={expenses} />
         <ExpenseInput users={users} onExpenseAdd={onAdd} />
+        <h3>SUMMARY</h3>
     </div>
 );
 

@@ -39,8 +39,8 @@ function expenses(
     state = [
         {
             title: "test",
-            price: 123,
-            person: "jacek",
+            price: 123.34663,
+            userId: "jacek",
         },
     ],
     action
@@ -53,7 +53,8 @@ function expenses(
                 {
                     title: action.payload.title,
                     price: parseFloat(action.payload.price),
-                    person: users.userId, //to fix
+                    // user: users.userId, //to fix
+                    userId: action.payload.userId, //to fix
                 },
             ];
 

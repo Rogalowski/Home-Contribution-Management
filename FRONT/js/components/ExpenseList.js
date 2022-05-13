@@ -2,10 +2,10 @@ import React from "react";
 
 const ExpenseList = ({ expenses = [] }) => (
     <ol>
-        Title expense --- Price expense
+        <b>WHAT? --- HOW MUCH? --- WHO?</b>
         {expenses.map((expense) => (
             <li>
-                {expense.title} --- {expense.price} zł by
+                {expense.title} --- {expense.price} zł --- {expense.userId}
             </li>
         ))}
     </ol>
