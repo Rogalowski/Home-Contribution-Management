@@ -10,15 +10,21 @@ class ExpenseInput extends Component {
         this.state = {
             userId: "jacek",
             title: "",
+            price: "",
         };
 
-        this.onInputChange = this.onInputChange.bind(this);
+        this.onTitleChange = this.onTitleChange.bind(this);
+        this.onPriceChange = this.onPriceChange.bind(this);
         this.onSelectChange = this.onSelectChange.bind(this);
         this.onClick = this.onClick.bind(this);
     }
 
-    onInputChange(event) {
+    onTitleChange(event) {
         this.setState({ title: event.target.value });
+    }
+
+    onPriceChange(event) {
+        this.setState({ price: event.target.value });
     }
 
     onSelectChange(event) {
@@ -32,7 +38,16 @@ class ExpenseInput extends Component {
     render() {
         return (
             <div>
-                <input value={this.state.title} onChange={this.onInputChange} />
+                title:
+                <input value={this.state.title} onChange={this.onTitleChange} />
+                price:
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    value={this.state.price}
+                    onChange={this.onPriceChange}
+                />
                 <select
                     value={this.state.userId}
                     onChange={this.onSelectChange}
