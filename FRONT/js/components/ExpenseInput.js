@@ -43,7 +43,7 @@ class ExpenseInput extends Component {
                 price:
                 <input
                     type="text"
-                    inputmode="numeric"
+                    inputMode="numeric"
                     pattern="[0-9]*"
                     value={this.state.price}
                     onChange={this.onPriceChange}
