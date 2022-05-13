@@ -12,6 +12,7 @@ const Expenses = ({ onAdd, users, expenses }) => (
         <ExpenseList expenses={expenses} />
         <ExpenseInput users={users} onExpenseAdd={onAdd} />
         <h3>SUMMARY</h3>
+        <UsersList users={users} />
     </div>
 );
 

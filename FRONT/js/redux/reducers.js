@@ -25,18 +25,6 @@ function users(state = initUser, action) {
     }
 }
 
-// function expenses(state = [], action) {
-//     switch (action.type) {
-//         case ADD_EXPENSE:
-//             return [
-//                 ...state,
-//                 [action.payload.title + " ", action.payload.price],
-//             ];
-
-//         default:
-//             return state;
-//     }
-// }
 function expenses(
     state = [
         {
@@ -47,16 +35,18 @@ function expenses(
     ],
     action
 ) {
+    const currentDate = new Date();
+
     switch (action.type) {
         case ADD_EXPENSE:
             return [
                 ...state,
 
                 {
+                    date: currentDate.toLocaleString(),
                     title: action.payload.title,
                     price: parseFloat(action.payload.price),
-                    // user: users.userId, //to fix
-                    userId: action.payload.userId, //to fix
+                    userId: action.payload.userId,
                 },
             ];
 
