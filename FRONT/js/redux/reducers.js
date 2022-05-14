@@ -20,6 +20,13 @@ function users(state = initUser, action) {
                     state[action.payload.userId] +
                     parseFloat(action.payload.price),
             };
+        case REMOVE_EXPENSE:
+            return {
+                ...state,
+                [action.payload.userId]:
+                    state[action.payload.userId] -
+                    parseFloat(action.payload.price),
+            };
 
         default:
             return state;
