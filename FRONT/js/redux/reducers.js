@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, ADD_USER, REMOVE_EXPENSE } from "./actions";
+import { ADD_EXPENSE, ADD_USER, REMOVE_EXPENSE, REMOVE_USER } from "./actions";
 import { combineReducers } from "redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -27,6 +27,11 @@ function users(state = initUser, action) {
                     state[action.payload.userId] -
                     parseFloat(action.payload.price),
             };
+
+        case REMOVE_USER:
+            const { userId } = action.payload;
+
+            return state.filter((user) => user.userId !== userId);
 
         default:
             return state;
