@@ -14,7 +14,7 @@ class ExpenseInput extends Component {
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onPriceChange = this.onPriceChange.bind(this);
         this.onSelectChange = this.onSelectChange.bind(this);
-        this.onClick = this.onClick.bind(this);
+        this.onClickAdd = this.onClickAdd.bind(this);
     }
 
     onTitleChange(event) {
@@ -29,7 +29,7 @@ class ExpenseInput extends Component {
         this.setState({ userId: event.target.value });
     }
 
-    onClick() {
+    onClickAdd() {
         this.props.onExpenseAdd(this.state);
     }
 
@@ -59,7 +59,7 @@ class ExpenseInput extends Component {
                         <option key={user}>{user}</option>
                     ))}
                 </select>
-                <button onClick={this.onClick}>ADD EXPENSE</button>
+                <button onClick={this.onClickAdd}>ADD EXPENSE</button>
             </div>
         );
     }

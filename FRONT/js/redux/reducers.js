@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, ADD_USER } from "./actions";
+import { ADD_EXPENSE, ADD_USER, REMOVE_EXPENSE } from "./actions";
 import { combineReducers } from "redux";
 
 const initUser = {
@@ -50,6 +50,15 @@ function expenses(
                     userId: action.payload.userId,
                 },
             ];
+        case REMOVE_EXPENSE:
+            const { date, title, price, userId } = action.payload;
+
+            return state.filter(
+                (expense) => expense.date !== date
+                // expense.price !== price &&
+                // expense.title !== title &&
+                // expense.userId !== userId
+            );
 
         default:
             return state;

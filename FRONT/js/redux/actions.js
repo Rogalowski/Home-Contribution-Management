@@ -5,6 +5,8 @@ export {
     REMOVE_USER,
     addExpense,
     addUser,
+    removeUser,
+    removeExpense,
 };
 
 const ADD_EXPENSE = "ADD_EXPENSE";

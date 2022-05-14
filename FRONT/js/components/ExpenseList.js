@@ -1,12 +1,17 @@
 import React from "react";
 
-const ExpenseList = ({ expenses = [] }) => (
+// const onClickRemove = () => onExpenseRemove(expense);
+
+const ExpenseList = ({ onExpenseRemove, expenses = [] }) => (
     <ol>
         <b>ID. WHEN? --- WHAT? --- HOW MUCH? --- WHO?</b>
         {expenses.map((expense, index) => (
             <li key={index}>
                 {expense.date} --- {expense.title} --- {expense.price} zł ---{" "}
-                {expense.userId}
+                {expense.userId}{" "}
+                <button onClick={() => onExpenseRemove(expense)}>
+                    REMOVE EXPENSE
+                </button>
             </li>
         ))}
     </ol>
