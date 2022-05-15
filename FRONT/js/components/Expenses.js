@@ -12,7 +12,6 @@ const Expenses = ({ onAddExp, onRemoveExp, users, expenses }) => (
         <ExpenseList expenses={expenses} onExpenseRemove={onRemoveExp} />
         <ExpenseInput users={users} onExpenseAdd={onAddExp} />
         <h3>SUMMARY</h3>
-        <UsersList users={users} />
     </div>
 );
 

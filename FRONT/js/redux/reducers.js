@@ -31,7 +31,24 @@ function users(state = initUser, action) {
         case REMOVE_USER:
             const { userId } = action.payload;
 
-            return state.filter((user) => user.userId !== userId);
+            return delete state[userId];
+
+        // return state.filter((user) => user.userId !== userId);
+        // return state.filter((user) => user.userId !== userId);
+        // return Object.keys(state).filter(
+        //     () => state[action.payload] !== action.payload
+        // );
+
+        // return delete state[userId];
+
+        //         return {
+        //             let filtered = {}
+        // Object.keys(state).filter(prop => {
+        //     if (prop !== action.payload) {
+        //         filtered[prop] = obj[prop]
+        //     }
+        // })
+        //         }
 
         default:
             return state;
