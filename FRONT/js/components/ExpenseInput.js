@@ -23,11 +23,15 @@ const ExpenseInput = ({ users, onExpenseAdd }) => {
                 onChange={(e) => setPrice(e.target.value)}
             />
             <select
-                defaultValue={userId}
+                // defaultValue={userId}
+                value={userId}
                 onChange={(e) => setUser(e.target.value)}
             >
-                {Object.keys(users).map((user) => (
+                {/* {Object.keys(users).map((user) => (
                     <option key={user}>{user}</option>
+                ))} */}
+                {users.map((user) => (
+                    <option key={user.user}>{user.user}</option>
                 ))}
             </select>
             <button

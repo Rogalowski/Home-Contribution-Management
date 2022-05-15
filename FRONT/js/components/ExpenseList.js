@@ -6,7 +6,7 @@ const ExpenseList = ({ onExpenseRemove, expenses = [] }) => (
     <ol>
         <b>ID. WHEN? --- WHAT? --- HOW MUCH? --- WHO?</b>
         {expenses.map((expense, index) => (
-            <li key={index}>
+            <li key={expense.id}>
                 {expense.date} --- {expense.title} --- {expense.price} zł ---{" "}
                 {expense.userId}{" "}
                 <button onClick={() => onExpenseRemove(expense)}>
