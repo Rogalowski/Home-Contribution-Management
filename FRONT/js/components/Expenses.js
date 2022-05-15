@@ -11,7 +11,7 @@ const Expenses = ({ onAddExp, onRemoveExp, users, expenses }) => (
         <h2>JANUARY</h2>
         <ExpenseList expenses={expenses} onExpenseRemove={onRemoveExp} />
         <ExpenseInput users={users} onExpenseAdd={onAddExp} />
-        <h3>SUMMARY</h3>
+        <h3>TOTAL SPENT</h3>
     </div>
 );
 
