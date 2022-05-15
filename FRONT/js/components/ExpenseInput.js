@@ -1,68 +1,114 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
-class ExpenseInput extends Component {
-    static defaultProps = {
-        onExpenseAdd: () => {},
-    };
+const ExpenseInput = ({ users, onExpenseAdd }) => {
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState();
+    const [userId, setUser] = useState("someone");
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            userId: "someone", // will select peron on refresh site
-        };
+    return (
+        <div>
+            title:
+            <input
+                placeholder="Type name of bought product"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+            />
+            price:
+            <input
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                placeholder="Type numeric 0-9.0-9"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+            />
+            <select
+                defaultValue={userId}
+                onChange={(e) => setUser(e.target.value)}
+            >
+                {Object.keys(users).map((user) => (
+                    <option key={user}>{user}</option>
+                ))}
+            </select>
+            <button
+                onClick={() => {
+                    onExpenseAdd({
+                        title: title,
+                        price: price,
+                        userId: userId,
+                    });
+                    setTitle("");
+                }}
+            >
+                ADD EXPENSE
+            </button>
+        </div>
+    );
+};
 
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onPriceChange = this.onPriceChange.bind(this);
-        this.onSelectChange = this.onSelectChange.bind(this);
-        this.onClickAdd = this.onClickAdd.bind(this);
-    }
+// class ExpenseInputd extends Component {
+//     static defaultProps = {
+//         onExpenseAdd: () => {},
+//     };
 
-    onTitleChange(event) {
-        this.setState({ title: event.target.value });
-    }
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             userId: "someone", // will select peron on refresh site
+//         };
 
-    onPriceChange(event) {
-        this.setState({ price: event.target.value });
-    }
+//         this.onTitleChange = this.onTitleChange.bind(this);
+//         this.onPriceChange = this.onPriceChange.bind(this);
+//         this.onSelectChange = this.onSelectChange.bind(this);
+//         this.onClickAdd = this.onClickAdd.bind(this);
+//     }
 
-    onSelectChange(event) {
-        this.setState({ userId: event.target.value });
-    }
+//     onTitleChange(event) {
+//         this.setState({ title: event.target.value });
+//     }
 
-    onClickAdd() {
-        this.props.onExpenseAdd(this.state);
-    }
+//     onPriceChange(event) {
+//         this.setState({ price: event.target.value });
+//     }
 
-    render() {
-        return (
-            <div>
-                title:
-                <input
-                    placeholder="Type name of bought product"
-                    value={this.state.title}
-                    onChange={this.onTitleChange}
-                />
-                price:
-                <input
-                    type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                    placeholder="Type numeric 0-9.0-9"
-                    value={this.state.price}
-                    onChange={this.onPriceChange}
-                />
-                <select
-                    value={this.state.userId}
-                    onChange={this.onSelectChange}
-                >
-                    {Object.keys(this.props.users).map((user) => (
-                        <option key={user}>{user}</option>
-                    ))}
-                </select>
-                <button onClick={this.onClickAdd}>ADD EXPENSE</button>
-            </div>
-        );
-    }
-}
+//     onSelectChange(event) {
+//         this.setState({ userId: event.target.value });
+//     }
+
+//     onClickAdd() {
+//         this.props.onExpenseAdd(this.state);
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 title:
+//                 <input
+//                     placeholder="Type name of bought product"
+//                     value={this.state.title}
+//                     onChange={this.onTitleChange}
+//                 />
+//                 price:
+//                 <input
+//                     type="text"
+//                     inputMode="numeric"
+//                     pattern="[0-9]*"
+//                     placeholder="Type numeric 0-9.0-9"
+//                     value={this.state.price}
+//                     onChange={this.onPriceChange}
+//                 />
+//                 <select
+//                     value={this.state.userId}
+//                     onChange={this.onSelectChange}
+//                 >
+//                     {Object.keys(this.props.users).map((user) => (
+//                         <option key={user}>{user}</option>
+//                     ))}
+//                 </select>
+//                 <button onClick={this.onClickAdd}>ADD EXPENSE</button>
+//             </div>
+//         );
+//     }
+// }
 
 export default ExpenseInput;

@@ -14,6 +14,7 @@ const UserInput = ({ onUserAdd, onUserRemove, onSelectChange, users }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="text"
+                placeholder="Type name here"
             />
             <button
                 onClick={() => {
