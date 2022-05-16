@@ -33,6 +33,18 @@ function users(state = initUser, action) {
                     spent: 0,
                 },
             ];
+        case REMOVE_USER:
+            console.log(
+                state.filter((userEl) => userEl.user !== action.payload.user)
+            );
+            // const { user, spent } = action.payload;
+            return state.filter(
+                (userEl) => userEl.user !== action.payload.user
+            );
+
+        // state.filter(
+        //     (userElement) => userElement.user !== action.payload.user
+        // );
 
         case ADD_EXPENSE:
             // let summ = "";
@@ -78,28 +90,6 @@ function users(state = initUser, action) {
         //             state[action.payload.userId] -
         //             parseFloat(action.payload.price),
         //     };
-
-        case REMOVE_USER:
-            const { userId } = action.payload;
-
-            return delete state[userId];
-
-        // return state.filter((user) => user.userId !== userId);
-        // return state.filter((user) => user.userId !== userId);
-        // return Object.keys(state).filter(
-        //     () => state[action.payload] !== action.payload
-        // );
-
-        // return delete state[userId];
-
-        //         return {
-        //             let filtered = {}
-        // Object.keys(state).filter(prop => {
-        //     if (prop !== action.payload) {
-        //         filtered[prop] = obj[prop]
-        //     }
-        // })
-        //         }
 
         default:
             return state;

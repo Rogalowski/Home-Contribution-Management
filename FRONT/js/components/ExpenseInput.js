@@ -3,7 +3,7 @@ import React, { Component, useState } from "react";
 const ExpenseInput = ({ users, onExpenseAdd }) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState();
-    const [userId, setUser] = useState("someone");
+    const [userId, setUser] = useState("");
 
     return (
         <div>
@@ -22,14 +22,11 @@ const ExpenseInput = ({ users, onExpenseAdd }) => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
             />
-            <select
-                // defaultValue={userId}
-                value={userId}
-                onChange={(e) => setUser(e.target.value)}
-            >
+            <select value={userId} onChange={(e) => setUser(e.target.value)}>
                 {/* {Object.keys(users).map((user) => (
                     <option key={user}>{user}</option>
                 ))} */}
+                <option>Choose user</option>
                 {users.map((user) => (
                     <option key={user.user}>{user.user}</option>
                 ))}
@@ -42,6 +39,7 @@ const ExpenseInput = ({ users, onExpenseAdd }) => {
                         userId: userId,
                     });
                     setTitle("");
+                    setUser(" ");
                 }}
             >
                 ADD EXPENSE

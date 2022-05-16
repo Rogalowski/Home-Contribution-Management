@@ -2,11 +2,7 @@ import React, { Component, useState } from "react";
 
 const UserInput = ({ onUserAdd, onUserRemove, onSelectChange, users }) => {
     const [name, setName] = useState("");
-    const [selector, setSelector] = useState("someone");
-
-    function onSelectChange(event) {
-        setSelector(event.target.value);
-    }
+    const [selector, setSelector] = useState(" ");
 
     return (
         <div>
@@ -25,18 +21,26 @@ const UserInput = ({ onUserAdd, onUserRemove, onSelectChange, users }) => {
                 ADD USER
             </button>
 
-            <select value={selector} onChange={onSelectChange}>
+            <select
+                value={selector}
+                onChange={(e) => setSelector(e.target.value)}
+            >
                 {/* {Object.keys(users).map((user) => (
                     <option key={user}>{user}</option>
                 ))} */}
+                <option>Choose user</option>
                 {users.map((user) => (
-                    <option key={user.user}>{user.user}</option>
+                    <option key={user.user}> {user.user}</option>
                 ))}
             </select>
 
             <button
                 // onClick={() => this.props.onUserRemove(this.state.user)}
-                onClick={onUserRemove}
+                onClick={() =>
+                    onUserRemove({
+                        user: selector,
+                    })
+                }
                 // onClick={this.onClickRemove(this.state)}
             >
                 REMOVE USER
