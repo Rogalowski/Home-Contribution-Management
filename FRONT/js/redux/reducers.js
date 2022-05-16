@@ -1,4 +1,10 @@
-import { ADD_EXPENSE, ADD_USER, REMOVE_EXPENSE, REMOVE_USER } from "./actions";
+import {
+    ADD_EXPENSE,
+    ADD_USER,
+    EDIT_EXPENSE,
+    REMOVE_EXPENSE,
+    REMOVE_USER,
+} from "./actions";
 import { combineReducers } from "redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -123,8 +129,19 @@ function expenses(
                     userId: action.payload.userId,
                 },
             ];
+        case EDIT_EXPENSE:
+            const { title, price, userId } = action.payload;
+            return [
+                ...state,
+                {
+                    title: title,
+                    price: price,
+                    userId: userId,
+                },
+            ];
+
         case REMOVE_EXPENSE:
-            const { id, date, title, price, userId } = action.payload;
+            const { id, date } = action.payload;
 
             return state.filter(
                 (expense) => expense.id !== id
