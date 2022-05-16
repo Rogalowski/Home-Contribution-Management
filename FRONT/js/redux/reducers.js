@@ -39,39 +39,39 @@ function users(state = initUser, action) {
 
             console.log("sdgfdsgfdgdfgdfg " + state[action.payload.spent]);
 
-            return [
-                ...state.filter((p) => p.user !== action.payload.userId),
-                {
-                    spent:
-                        state[action.payload.spent] +
-                        parseFloat(action.payload.price),
+            // return [
+            //     ...state.filter((p) => p.user !== action.payload.userId),
 
-                    // id: id,
-                    user: action.payload.userId,
-                    // spent: action.payload.price,
-                    // spent: state.spent + parseFloat(action.payload.price),
+            //     {
+            //         user: action.payload.userId,
+            //         spent: action.payload.price,
+            //     },
+            //]
+            return state.map((userElement) => {
+                if (userElement.user === action.payload.userId) {
+                    return {
+                        ...userElement,
+                        spent:
+                            userElement.spent +
+                            parseFloat(action.payload.price),
+                    };
+                }
+                console.log("Current State: " + state);
+                return userElement;
+            });
 
-                    // spent: parseFloat(action.payload.price),
-                    // spent: state.spent.map((spent, i) =>
-                    //     i === 1 ? { ...spent, price: action.payload } : spent
-                    // ),
-                },
-            ];
-
-        // return [
-        //     ...state,
-        //     {
-        //         id: state.id,
-        //         user: state.user,
-        //         spent: action.payload.spent + 1,
-        //         // user: action.payload.userId,
-        //     },
-        // ];
-        // return state.user(({ id }) => id === action.event.user.id)
-        //     ? state
-        //     : [...state, action.event];
-
-        // case REMOVE_EXPENSE:
+        case REMOVE_EXPENSE:
+            return state.map((userElement) => {
+                if (userElement.user === action.payload.userId) {
+                    return {
+                        ...userElement,
+                        spent:
+                            userElement.spent -
+                            parseFloat(action.payload.price),
+                    };
+                }
+                return userElement;
+            });
         //     return {
         //         ...state,
         //         [action.payload.userId]:
