@@ -9,11 +9,16 @@ const ExpenseList = ({
     users,
     expenses = [],
 }) => {
-    const [hidden, setHidden] = useState(true);
+    // const [hidden, setHidden] = useState([]);
 
     const handler = (index) => (event) => {
         console.log(event.target.id);
-        // setHidden(!hidden);
+        console.log(hidden);
+        //
+        if (event.target.id) {
+            // return setHidden(!hidden[event.target.id]);
+            return;
+        }
     };
 
     return (
@@ -32,7 +37,7 @@ const ExpenseList = ({
                     {/* <button id={index} onClick={(e) => e.target.id}>
                         { ? "EDIT" : "CANCEL"}
                     </button> */}
-                    <div id={index} hidden={hidden}>
+                    <div id={index} hidden={!hidden[index]}>
                         <ExpenseEdit
                             users={users}
                             onExpenseEdit={onExpenseEdit}
