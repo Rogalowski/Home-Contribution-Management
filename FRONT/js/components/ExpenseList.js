@@ -37,12 +37,12 @@ const ExpenseList = ({
                     {/* <button id={index} onClick={(e) => e.target.id}>
                         { ? "EDIT" : "CANCEL"}
                     </button> */}
-                    <div id={index} hidden={!hidden[index]}>
+                    {/* <div id={index} hidden={!hidden[index]}>
                         <ExpenseEdit
                             users={users}
                             onExpenseEdit={onExpenseEdit}
                         />
-                    </div>
+                    </div> */}
                     <button onClick={() => onExpenseRemove(expense)}>
                         REMOVE EXPENSE
                     </button>
