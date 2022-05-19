@@ -1,8 +1,8 @@
 # Home-Contribution-Management
 
-Home Contribution Management Project
+**_Home Contribution Management Project_**
 
-FRONTend: React & Redux
+**_FRONTend: React & Redux_**
 
 To install packages:
 
@@ -22,8 +22,10 @@ Local server available:
 http://localhost:3003/
 ```
 
-BACKend: Python Django RESTapi
+**_BACKend: Python Django RESTapi_**
 
-**_Pending_**
+Pending
 
 Screenshots:
+
+![image](https://user-images.githubusercontent.com/68423391/169182333-f00b01c9-cf51-4366-8c16-c697f129881f.png)
