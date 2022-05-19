@@ -1,5 +1,7 @@
 # Home-Contribution-Management
 
+Goal of this project is to create web service to manage expenses between mates at our home. First project created in google sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTucCQjcWhon23u6bU2TYnFHM4NEPyTMqgMaMnmq99-1glQaAagyyTU_Ce1IAApOGrv-bBFZ5xBhdKp/pubhtml I would like to migrate it to web as a service to help others with manage expenses.
+
 **_Home Contribution Management Project_**
 
 **_FRONTend: React & Redux_**
