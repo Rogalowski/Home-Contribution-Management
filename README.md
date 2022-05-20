@@ -20,7 +20,7 @@
 
 
 
-<h2> Home-Contribution-Management </h2>
+<h2 align="center"> Home-Contribution-Management </h2>
 
 Goal of this project is to create web service to manage expenses between mates at our home. First project created in google sheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vTucCQjcWhon23u6bU2TYnFHM4NEPyTMqgMaMnmq99-1glQaAagyyTU_Ce1IAApOGrv-bBFZ5xBhdKp/pubhtml I would like to migrate it to web as a service to help others with manage expenses.
 
