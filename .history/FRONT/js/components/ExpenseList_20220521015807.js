@@ -11,8 +11,10 @@ const ExpenseList = ({
 }) => {
     const [currentHidden, setCurrentHidden] = useState([]);
 
-    let hiddenArray = Array.from(Array(expenses.length), () => false);
-    console.log("Array: " + hiddenArray);
+    let newArray = expenses.length;
+
+    let a = Array.from(Array(newArray), () => false);
+    console.log("Array: " + a);
     // console.log("Array1: " + Object.values(a));
     // const [currentHidden, setCurrentHidden] = useState([
     //     expenses.map((expense, index) => ({
@@ -34,13 +36,13 @@ const ExpenseList = ({
 
     const handleToggleTask = ({ e, expense, index }) => {
         // setCurrentHidden((prev) => [...prev, expense.hidden]);
-        console.log("a index: " + index + " " + hiddenArray[index]);
+        console.log("a index: " + index + " " + a[index]);
         let selected = e.target.id;
 
         let arrayHiddenCopy = [
-            ...hiddenArray.slice(0, index),
-            !hiddenArray[index],
-            ...hiddenArray.slice(index + 1),
+            ...a.slice(0, index),
+            !a[index],
+            ...a.slice(index + 1),
         ];
         setCurrentHidden(arrayHiddenCopy);
 
@@ -59,10 +61,10 @@ const ExpenseList = ({
                     <button
                         id={index}
                         onClick={(e) =>
-                            handleToggleTask({ e, hiddenArray, expense, index })
+                            handleToggleTask({ e, a, expense, index })
                         }
                     >
-                        {currentHidden[index] ? "↓" : "EDIT"}
+                        {currentHidden[index] ? "" : "EDIT"}
                     </button>
                     <div key={index} hidden={!currentHidden[index]}>
                         <ExpenseEdit
@@ -71,7 +73,7 @@ const ExpenseList = ({
                         />
                     </div>
                     <button onClick={() => onExpenseRemove(expense)}>
-                        REMOVE
+                        REMOVE EXPENSE
                     </button>
                 </li>
             ))}

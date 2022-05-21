@@ -9,11 +9,12 @@ const ExpenseList = ({
     users,
     expenses = [],
 }) => {
-    const [currentHidden, setCurrentHidden] = useState([]);
+    const [currentHidden, setCurrentHidden] = useState([expenses.length]);
 
-    let hiddenArray = Array.from(Array(expenses.length), () => false);
-    console.log("Array: " + hiddenArray);
-    // console.log("Array1: " + Object.values(a));
+    let newArray = 3;
+
+    let a = Array.from(Array(newArray), () => true);
+    console.log("Array: " + a.split(","));
     // const [currentHidden, setCurrentHidden] = useState([
     //     expenses.map((expense, index) => ({
     //         expense: expense.hidden,
@@ -34,13 +35,13 @@ const ExpenseList = ({
 
     const handleToggleTask = ({ e, expense, index }) => {
         // setCurrentHidden((prev) => [...prev, expense.hidden]);
-        console.log("a index: " + index + " " + hiddenArray[index]);
+
         let selected = e.target.id;
 
         let arrayHiddenCopy = [
-            ...hiddenArray.slice(0, index),
-            !hiddenArray[index],
-            ...hiddenArray.slice(index + 1),
+            ...currentHidden.slice(0, index),
+            !currentHidden[index],
+            ...currentHidden.slice(index + 1),
         ];
         setCurrentHidden(arrayHiddenCopy);
 
@@ -58,20 +59,24 @@ const ExpenseList = ({
                     --- {expense.userId}
                     <button
                         id={index}
-                        onClick={(e) =>
-                            handleToggleTask({ e, hiddenArray, expense, index })
-                        }
+                        onClick={(e) => handleToggleTask({ e, expense, index })}
                     >
-                        {currentHidden[index] ? "↓" : "EDIT"}
+                        {currentHidden[index] ? "EDIT " : "CANCEL"}
                     </button>
-                    <div key={index} hidden={!currentHidden[index]}>
+                    {/* <button id={index} onClick={handler(index)}>
+                        {handler ? "EDIT" : "CANCEL"}
+                    </button> */}
+                    {/* <button id={index} onClick={(e) => e.target.id}>
+                        { ? "EDIT" : "CANCEL"}
+                    </button> */}
+                    <div key={index} hidden={currentHidden[index]}>
                         <ExpenseEdit
                             users={users}
                             onExpenseEdit={onExpenseEdit}
                         />
                     </div>
                     <button onClick={() => onExpenseRemove(expense)}>
-                        REMOVE
+                        REMOVE EXPENSE
                     </button>
                 </li>
             ))}

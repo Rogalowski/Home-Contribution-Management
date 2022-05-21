@@ -9,10 +9,12 @@ const ExpenseList = ({
     users,
     expenses = [],
 }) => {
-    const [currentHidden, setCurrentHidden] = useState([]);
+    // const [currentHidden, setCurrentHidden] = useState([expenses.length]);
 
-    let hiddenArray = Array.from(Array(expenses.length), () => false);
-    console.log("Array: " + hiddenArray);
+    let newArray = expenses.length;
+
+    let a = Array.from(Array(newArray), () => true);
+    console.log("Array: " + a);
     // console.log("Array1: " + Object.values(a));
     // const [currentHidden, setCurrentHidden] = useState([
     //     expenses.map((expense, index) => ({
@@ -34,17 +36,17 @@ const ExpenseList = ({
 
     const handleToggleTask = ({ e, expense, index }) => {
         // setCurrentHidden((prev) => [...prev, expense.hidden]);
-        console.log("a index: " + index + " " + hiddenArray[index]);
+        console.log("a index: " + index + " " + a[index]);
         let selected = e.target.id;
 
         let arrayHiddenCopy = [
-            ...hiddenArray.slice(0, index),
-            !hiddenArray[index],
-            ...hiddenArray.slice(index + 1),
+            ...a.slice(0, index),
+            !a[index],
+            ...a.slice(index + 1),
         ];
-        setCurrentHidden(arrayHiddenCopy);
+        // setCurrentHidden(arrayHiddenCopy);
 
-        console.log("Array:  ", currentHidden);
+        console.log("Array:  ", a);
         console.log("selected:  ", selected);
         console.log("Kliknałem task: ", { index });
     };
@@ -59,19 +61,25 @@ const ExpenseList = ({
                     <button
                         id={index}
                         onClick={(e) =>
-                            handleToggleTask({ e, hiddenArray, expense, index })
+                            handleToggleTask({ e, a, expense, index })
                         }
                     >
-                        {currentHidden[index] ? "↓" : "EDIT"}
+                        {a[index] ? "EDIT " : "CANCEL"}
                     </button>
-                    <div key={index} hidden={!currentHidden[index]}>
+                    {/* <button id={index} onClick={handler(index)}>
+                        {handler ? "EDIT" : "CANCEL"}
+                    </button> */}
+                    {/* <button id={index} onClick={(e) => e.target.id}>
+                        { ? "EDIT" : "CANCEL"}
+                    </button> */}
+                    <div key={index} hidden={a[index]}>
                         <ExpenseEdit
                             users={users}
                             onExpenseEdit={onExpenseEdit}
                         />
                     </div>
                     <button onClick={() => onExpenseRemove(expense)}>
-                        REMOVE
+                        REMOVE EXPENSE
                     </button>
                 </li>
             ))}

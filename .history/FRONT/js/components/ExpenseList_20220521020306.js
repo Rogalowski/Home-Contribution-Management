@@ -62,7 +62,7 @@ const ExpenseList = ({
                             handleToggleTask({ e, hiddenArray, expense, index })
                         }
                     >
-                        {currentHidden[index] ? "↓" : "EDIT"}
+                        {currentHidden[index] ? "˯" : "EDIT"}
                     </button>
                     <div key={index} hidden={!currentHidden[index]}>
                         <ExpenseEdit

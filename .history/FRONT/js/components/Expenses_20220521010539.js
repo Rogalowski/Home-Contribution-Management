@@ -4,6 +4,13 @@ import UsersList from "./UsersList";
 import ExpenseList from "./ExpenseList";
 import ExpenseEdit from "./ExpenseEdit";
 
+const [currentHidden, setCurrentHidden] = useState([
+    expenses.map((expense, index) => ({
+        expense: expense.hidden,
+    })),
+    console.log(currentHidden),
+]);
+
 const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => (
     <div>
         <h5>Added Users with Summary: </h5>

@@ -124,7 +124,7 @@ function expenses(
 
                 {
                     id: uuidv4(),
-                    date: currentDate.toLocaleString("pl-PL"),
+                    date: currentDate.toLocaleString(),
                     title: action.payload.title,
                     price: parseFloat(action.payload.price),
                     userId: action.payload.userId,
