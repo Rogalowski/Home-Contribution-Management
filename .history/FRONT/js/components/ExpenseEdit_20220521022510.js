@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
-    const [title, setTitle] = useState(expense.title);
-    const [price, setPrice] = useState(expense.price);
-    const [userId, setUser] = useState(expense.userId);
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState();
+    const [userId, setUser] = useState("");
 
     return (
         <div>
@@ -19,7 +19,7 @@ const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
                 inputMode="numeric"
                 pattern="[0-9]*"
                 placeholder="Type numeric 0-9.0-9"
-                value={price}
+                value={expense.price}
                 onChange={(e) => setPrice(e.target.value)}
             />
             <select value={userId} onChange={(e) => setUser(e.target.value)}>
@@ -40,7 +40,7 @@ const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
                     });
                     setTitle("");
                     setPrice();
-                    setUser("");
+                    setUser(" ");
                 }}
             >
                 SAVE

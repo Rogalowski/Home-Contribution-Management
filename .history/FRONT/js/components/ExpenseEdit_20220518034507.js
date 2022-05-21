@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
-    const [title, setTitle] = useState(expense.title);
-    const [price, setPrice] = useState(expense.price);
-    const [userId, setUser] = useState(expense.userId);
+const ExpenseEdit = ({ users, onExpenseEdit }) => {
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState();
+    const [userId, setUser] = useState("");
 
     return (
         <div>
@@ -40,7 +40,7 @@ const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
                     });
                     setTitle("");
                     setPrice();
-                    setUser("");
+                    setUser(" ");
                 }}
             >
                 SAVE

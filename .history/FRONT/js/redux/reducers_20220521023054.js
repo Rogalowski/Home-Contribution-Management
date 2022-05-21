@@ -132,19 +132,13 @@ function expenses(
                 },
             ];
         case EDIT_EXPENSE:
-            // const { title, price, userId } = action.payload;
-            const idExpense = state.expenses.findIndex(
-                (expense) => expense.id !== action.payload
-            );
-            const newArray = [...state.expenses];
-
+            const { title, price, userId } = action.payload;
             return [
                 ...state,
                 {
-                    title: newArray[idExpense].title,
-                    price: newArray[idExpense].price,
-                    userId: newArray[idExpense].userId,
-                    // userId: userId,
+                    title: title,
+                    price: price,
+                    userId: userId,
                 },
             ];
 

@@ -67,7 +67,7 @@ const ExpenseList = ({
                     <div key={index} hidden={!currentHidden[index]}>
                         <ExpenseEdit
                             users={users}
-                            expense={expense}
+                            expenses={expenses}
                             onExpenseEdit={onExpenseEdit}
                         />
                     </div>

@@ -40,7 +40,7 @@ const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
                     });
                     setTitle("");
                     setPrice();
-                    setUser("");
+                    setUser(" ");
                 }}
             >
                 SAVE
