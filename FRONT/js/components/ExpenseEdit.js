@@ -34,6 +34,7 @@ const ExpenseEdit = ({ users, onExpenseEdit, expense }) => {
             <button
                 onClick={() => {
                     onExpenseEdit({
+                        id: expense.id,
                         title: title,
                         price: price,
                         userId: userId,

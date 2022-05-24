@@ -105,7 +105,7 @@ function users(state = initUser, action) {
 function expenses(
     state = [
         {
-            id: 1,
+            id: "b9d69aab-e255-4093-8fb0-f2f602d77cd1",
             date: "13.05.2022, 22:53:24",
             title: "test",
             price: 0,
@@ -132,19 +132,26 @@ function expenses(
                 },
             ];
         case EDIT_EXPENSE:
-            // const { title, price, userId } = action.payload;
-            const idExpense = state.expenses.findIndex(
-                (expense) => expense.id !== action.payload
+            const { title, price, userId } = action.payload;
+            // console.log("action.payload: " + JSON.stringify(action.payload));
+            const idExpense = state.filter(
+                (expense) => expense.id === action.payload.id
             );
-            const newArray = [...state.expenses];
+            // const newArray = [...state.expenses];
+            console.log("idExpense: " + Object.entries(idExpense));
+            // let [key, value] = Object.entries(idExpense)[0];
+            // console.log(key); // "plainKey"
+            // console.log(value.id); // "plain value"
 
             return [
-                ...state,
+                // ...state,
+                ...state.filter((p) => p.id !== action.payload.id),
                 {
-                    title: newArray[idExpense].title,
-                    price: newArray[idExpense].price,
-                    userId: newArray[idExpense].userId,
-                    // userId: userId,
+                    id: action.payload.id,
+                    date: currentDate.toLocaleString("pl-PL"),
+                    title: title,
+                    price: price,
+                    userId: userId,
                 },
             ];
 

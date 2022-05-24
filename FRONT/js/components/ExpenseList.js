@@ -34,7 +34,7 @@ const ExpenseList = ({
 
     const handleToggleTask = ({ e, expense, index }) => {
         // setCurrentHidden((prev) => [...prev, expense.hidden]);
-        console.log("a index: " + index + " " + hiddenArray[index]);
+        console.log("a index: " + index + " jest równy" + hiddenArray[index]);
         let selected = e.target.id;
 
         let arrayHiddenCopy = [
