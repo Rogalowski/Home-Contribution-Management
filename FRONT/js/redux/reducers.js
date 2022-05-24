@@ -55,7 +55,9 @@ function users(state = initUser, action) {
         case ADD_EXPENSE:
             // let summ = "";
 
-            console.log("sdgfdsgfdgdfgdfg " + state[action.payload.spent]);
+            console.log(
+                "state[action.payload.spent]) " + state[action.payload.spent]
+            );
 
             // return [
             //     ...state.filter((p) => p.user !== action.payload.userId),
@@ -90,12 +92,25 @@ function users(state = initUser, action) {
                 }
                 return userElement;
             });
-        //     return {
-        //         ...state,
-        //         [action.payload.userId]:
-        //             state[action.payload.userId] -
-        //             parseFloat(action.payload.price),
-        //     };
+        case EDIT_EXPENSE:
+            // const someAction = () => (dispatch, getState) => {
+            //     const someVal = getState().expenses.price;
+            //     dispatch({ type: types.EDIT_EXPENSE, price: someVal });
+            // };
+            // console.log("someAction: " + someAction(action.payload.price));
+            return state.map((userElement) => {
+                if (userElement.user === action.payload.userId) {
+                    return {
+                        ...userElement,
+                        spent:
+                            userElement.spent -
+                            state.spent +
+                            parseFloat(action.payload.price),
+                    };
+                }
+                console.log("Current State: " + state);
+                return userElement;
+            });
 
         default:
             return state;

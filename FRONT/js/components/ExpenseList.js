@@ -50,12 +50,12 @@ const ExpenseList = ({
     };
 
     return (
-        <ol>
+        <ul>
             <b>ID. WHEN? --- WHAT? --- HOW MUCH? --- WHO?</b>
             {expenses.map((expense, index) => (
                 <li key={expense.id}>
-                    {expense.date} --- {expense.title} --- {expense.price} zł
-                    --- {expense.userId}
+                    {index + 1}) {expense.date} --- {expense.title} ---{" "}
+                    {expense.price} zł --- {expense.userId}
                     <button
                         id={index}
                         onClick={(e) =>
@@ -76,7 +76,7 @@ const ExpenseList = ({
                     </button>
                 </li>
             ))}
-        </ol>
+        </ul>
     );
 };
 
