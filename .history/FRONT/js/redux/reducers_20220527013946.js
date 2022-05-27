@@ -105,7 +105,6 @@ function users(state = initUser, action) {
                         spent:
                             // userElement.spent -
                             // state.spent +
-
                             parseFloat(action.payload.price),
                     };
                 }
@@ -187,10 +186,11 @@ function expenses(
 }
 
 const rootReducer = (state = [], action) => {
-    const expenseCodes = state.expenses;
+    const expenseCodes = Object.entries(state.expenses).map(
+        (language) => language
+    );
     // console.log("EXPENSECODES: " + JSON.stringify(expenseCodes[0]));
     if (expenseCodes !== undefined) {
-        console.log(expenseCodes.map((expense) => expense));
         // console.log("EXPENSECODES: " + Object.entries(expenseCodes)[0]);
         let [key, value] = Object.entries(expenseCodes)[0];
         console.log(key); // "plainKey"

@@ -7,9 +7,9 @@ import ExpenseEdit from "./ExpenseEdit";
 const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
     const sumOfSpentTotal = users.reduce(
         (previousValue, currentValue) =>
-            previousValue.spent + currentValue.spent
+            previousValue.spent + currentValue.spent,
+        initialValue
     );
-    console.log("sumOfSpentTotal: " + sumOfSpentTotal);
     return (
         <div>
             <h5>Added Users with Summary: </h5>
@@ -23,7 +23,8 @@ const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
                 users={users}
             />
             <ExpenseInput users={users} onExpenseAdd={onAddExp} />
-            <h3>TOTAL SPENT: {sumOfSpentTotal} zł</h3>
+            <h3>TOTAL SPENT</h3>
+            users.reduc
         </div>
     );
 };

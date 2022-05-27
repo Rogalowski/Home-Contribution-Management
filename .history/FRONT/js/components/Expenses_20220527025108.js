@@ -23,7 +23,7 @@ const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
                 users={users}
             />
             <ExpenseInput users={users} onExpenseAdd={onAddExp} />
-            <h3>TOTAL SPENT: {sumOfSpentTotal} zł</h3>
+            <h3>TOTAL SPENT: {sumOfSpentTotal}</h3>
         </div>
     );
 };

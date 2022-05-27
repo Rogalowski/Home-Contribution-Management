@@ -105,7 +105,6 @@ function users(state = initUser, action) {
                         spent:
                             // userElement.spent -
                             // state.spent +
-
                             parseFloat(action.payload.price),
                     };
                 }
@@ -187,16 +186,8 @@ function expenses(
 }
 
 const rootReducer = (state = [], action) => {
-    const expenseCodes = state.expenses;
-    // console.log("EXPENSECODES: " + JSON.stringify(expenseCodes[0]));
-    if (expenseCodes !== undefined) {
-        console.log(expenseCodes.map((expense) => expense));
-        // console.log("EXPENSECODES: " + Object.entries(expenseCodes)[0]);
-        let [key, value] = Object.entries(expenseCodes)[0];
-        console.log(key); // "plainKey"
-        console.log("EXPENSECODES: " + value.price); // "plain value"
-    }
-
+    const expenseCodes = state.expense;
+    console.log("EXPENSECODES: " + expenseCodes);
     return {
         expenses: expenses(state.expenses, action),
         // merge expensesCodes with original action object, now you have access in translations reducer

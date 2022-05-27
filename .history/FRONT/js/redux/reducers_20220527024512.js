@@ -38,6 +38,7 @@ function users(state = initUser, action) {
                     user: action.payload.user,
                     spent: 0,
                 },
+                (total = 0),
             ];
         case REMOVE_USER:
             console.log(

@@ -105,7 +105,6 @@ function users(state = initUser, action) {
                         spent:
                             // userElement.spent -
                             // state.spent +
-
                             parseFloat(action.payload.price),
                     };
                 }
