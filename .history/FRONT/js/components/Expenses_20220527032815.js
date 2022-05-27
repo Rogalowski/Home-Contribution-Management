@@ -16,7 +16,7 @@ const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
             <h5>Added Users with Summary: </h5>
             <UsersList users={users} />
             <p></p>
-            <h1>Year: {currentDate.getFullYear()}</h1>
+            <h2>{currentDate.setFullYear.toString}</h2>
             <ExpenseList
                 expenses={expenses}
                 onExpenseRemove={onRemoveExp}

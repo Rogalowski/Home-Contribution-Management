@@ -9,14 +9,13 @@ const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
         (previousValue, currentValue) =>
             previousValue.spent + currentValue.spent
     );
-    const currentDate = new Date();
     console.log("sumOfSpentTotal: " + sumOfSpentTotal);
     return (
         <div>
             <h5>Added Users with Summary: </h5>
             <UsersList users={users} />
             <p></p>
-            <h1>Year: {currentDate.getFullYear()}</h1>
+            <h2>JANUARY</h2>
             <ExpenseList
                 expenses={expenses}
                 onExpenseRemove={onRemoveExp}
@@ -24,7 +23,14 @@ const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
                 users={users}
             />
             <ExpenseInput users={users} onExpenseAdd={onAddExp} />
-
+            <h2>FEBRUARY</h2>
+            <ExpenseList
+                expenses={expenses}
+                onExpenseRemove={onRemoveExp}
+                onExpenseEdit={onEditExp}
+                users={users}
+            />
+            <ExpenseInput users={users} onExpenseAdd={onAddExp} />
             <h3>TOTAL SPENT: {sumOfSpentTotal} zł</h3>
         </div>
     );
