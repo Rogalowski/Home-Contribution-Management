@@ -5,12 +5,25 @@ import ExpenseList from "./ExpenseList";
 import ExpenseEdit from "./ExpenseEdit";
 
 const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
-    const sumOfSpentTotal = users.reduce(
-        (previousValue, currentValue) =>
-            previousValue.spent + currentValue.spent
-    );
+    const sumOfSpentTotal = users.reduce((previousValue, currentValue) => {
+        if (previousValue.spent !== undefined) {
+            return (
+                parseFloat(previousValue.spent) + parseFloat(currentValue.spent)
+            );
+        } else {
+            return sumOfSpentTotal;
+        }
+    });
+    let sumOf = 0.0;
+    const sumOfSpentTotal1 = users.forEach((element) => {
+        console.log("element.spent: " + element.spent);
+        sumOf += parseFloat(element.spent);
+        console.log("SUN: " + sumOf);
+
+        return sumOf;
+    });
     const currentDate = new Date();
-    console.log("sumOfSpentTotal: " + sumOfSpentTotal);
+    console.log("sumOfSpentTotal: " + sumOfSpentTotal1);
     return (
         <div>
             <h5>Added Users with Summary: </h5>
@@ -25,7 +38,7 @@ const Expenses = ({ onAddExp, onEditExp, onRemoveExp, users, expenses }) => {
             />
             <ExpenseInput users={users} onExpenseAdd={onAddExp} />
 
-            <h3>TOTAL SPENT: {sumOfSpentTotal} zł</h3>
+            <h3>TOTAL SPENT: {sumOfSpentTotal1} zł</h3>
         </div>
     );
 };

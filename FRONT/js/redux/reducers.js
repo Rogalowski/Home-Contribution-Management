@@ -103,9 +103,8 @@ function users(state = initUser, action) {
                     return {
                         ...userElement,
                         spent:
-                            // userElement.spent -
-                            // state.spent +
-
+                            userElement.spent -
+                            state.spent +
                             parseFloat(action.payload.price),
                     };
                 }
@@ -166,7 +165,7 @@ function expenses(
                     id: action.payload.id,
                     date: currentDate.toLocaleString("pl-PL"),
                     title: title,
-                    price: parseFloat(price),
+                    price: price,
                     userId: userId,
                 },
             ];
@@ -186,25 +185,20 @@ function expenses(
     }
 }
 
-const rootReducer = (state = [], action) => {
-    const expenseCodes = state.expenses;
-    // console.log("EXPENSECODES: " + JSON.stringify(expenseCodes[0]));
-    if (expenseCodes !== undefined) {
-        console.log(expenseCodes.map((expense) => expense));
-        // console.log("EXPENSECODES: " + Object.entries(expenseCodes)[0]);
-        let [key, value] = Object.entries(expenseCodes)[0];
-        console.log(key); // "plainKey"
-        console.log("EXPENSECODES: " + value.price); // "plain value"
-    }
-
+// const rootReducer = (state = {}, action: Action) => {
+const rootReducer = (state = {}, action) => {
+    const languageCodes = state.languages.map((language) => language.code);
     return {
-        expenses: expenses(state.expenses, action),
-        // merge expensesCodes with original action object, now you have access in expenses reducer
-        users: users(state.users, { ...action, expenseCodes }),
+        languages: languages(state.languages, action),
+        // merge languageCodes with original action object, now you have access in translations reducer
+        translations: translations(state.translations, {
+            ...action,
+            languageCodes,
+        }),
     };
 };
-export default rootReducer;
-// export default combineReducers({
-//     expenses,
-//     users,
-// });
+
+export default combineReducers({
+    expenses,
+    users,
+});
